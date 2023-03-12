@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>TCS</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<style>
+.back{
+ background-image: url("{{ url_for('static', filename='image/2.gif') }}");
+background-repeat:no-repeat;
+background-size:cover;
+}
+.white{
+color:black;
+}
+.nspace{
+margin:15px 15px 30px 30px;
+padding:9px 10px;
+background: yellow;
+width:500px
+}
+.space{
+margin:10px 30px;
+padding:10px 10px;
+background: yellow;
+width:500px
+}
+.gap{
+padding:10px 20px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0px;
+  overflow: hidden;
+  background-color: lightgray;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: blue;
+ font-size:20px;
+  text-align: center;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+.active{
+background-color: gray;
+color: white;
+}
+li a:hover {
+  background-color: orange;
+  color: white;
+}
+
+</style>
+  
+</head>
+
+<body >
+  <ul>
+    <li><a href="{{ url_for('apple')}}">APPLE</a></li>
+    <li><a class="active" href="{{ url_for('tcs')}}">TCS</a></li>
+    <li><a href="{{ url_for('infosys')}}">INFOSYS</a></li>
+    <li><a href="{{ url_for('adani')}}">ADANI</a></li>
+    <li><a href="{{ url_for('bitcoin')}}">BITCOIN</a></li>
+  </ul>
+ <div>
+	<div class="jumbotron">
+	<h1 style="text-align:center"> TCS STOCK PRICE PREDICTION </h1>
+	
+	</div>
+<div class="back">
+     <!-- Main Input For Receiving Query to our ML -->
+    <form class="form-group" action="{{ url_for('tcs_predict')}}"method="post">
+    		
+		<div class="row">
+		<div class="gap col-md-6 ">
+
+		<label class="white"  for="">Open</label>
+		<input type="number" class="space form-control" step="0.00001" name="Open" placeholder="Open" required="required" /><br>
+
+    <label class="white"  for="">High</label>
+		<input type="number" class="space form-control" step="0.00001" name="High" placeholder="High" required="required" /><br>
+
+		</div>
+
+<div class="gap col-md-6">
+
+  <label class="white"  for="">Low</label>
+  <input type="number" class="space form-control" step="0.00001" name="Low" placeholder="Low" required="required" /><br>
+
+
+  <label class="white"  for="">Volume</label>
+	<input type="number" class="space form-control" step="0.00001" name="Volume" placeholder="Volume" required="required" /><br>
+
+		
+</div>
+</div>
+
+<div style="padding:2% 35%">
+  <button type="submit" class="btn btn-success btn-block" style="width:350px;padding:20px">Predict</button>		
+</div>
+      
+    </form>
+</div>
+   <br>
+   <br>
+
+<div  style="background:skyblue;padding:2% 40%">
+   {{ prediction_text }}<br>
+   {{ prediction_text1 }}
+</div>
+ </div>
+
+
+</body>
+</html>
