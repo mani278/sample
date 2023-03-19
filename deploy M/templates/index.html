@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>TITLE</title>
+  {% load static %}
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<style>
+.back{
+  background-image:url("{% static 'image/img.jpg' %}");
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-attachment: fixed;
+}
+.white{
+color:black;
+font-size:larger;
+}
+.nspace{
+margin:15px 15px 30px 30px;
+padding:9px 10px;
+background: cyan;
+width:500px
+}
+.space{
+margin:10px 30px;
+padding:10px 10px;
+background: cyan;
+width:500px
+}
+.gap{
+padding:10px 20px;
+}
+</style>
+  
+</head>
+
+<body class="back">
+ <div>
+	<div class="jumbotron">
+	<h1 style="text-align:center">PHD</h1>
+	
+	</div>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form class="form-group" action="{% url 'predict' %}"method="post">
+    	{% csrf_token %}
+		<div class="row">
+		<div class="gap col-md-6 ">
+
+		<label class="white" for="">    Waiting time for diagnostics</label>
+		<input type="number" class="space form-control" step="0.0001" name="1" placeholder="NUMERATOR" required="required" /><br>
+    <input type="number" class="space form-control" step="0.0001" name="2" placeholder="DENOMINATOR" required="required" /><br>
+    <input type="text" class="space form-control" step="0.0001"  placeholder="DENOMINATOR" value={{ a }} ><br>
+      
+    <label class="white" for="">Time taken for discharge</label>
+		<input type="number" class="space form-control" step="0.0001" name="3" placeholder="NUMERATOR" required="required" /><br>
+    <input type="number" class="space form-control" step="0.0001" name="4" placeholder="DENOMINATOR" required="required" /><br>
+    <input type="text" class="space form-control" step="0.0001"  placeholder="DENOMINATOR" value={{ b }}><br>
+
+    <label class="white" for="">Out patient satisfaction score </label>
+		<input type="number" class="space form-control" step="0.0001" name="5" placeholder="NUMERATOR" required="required" /><br>
+    <input type="number" class="space form-control" step="0.0001" name="6" placeholder="DENOMINATOR" required="required" /><br>
+    <input type="text" class="space form-control" step="0.0001" placeholder="DENOMINATOR" value={{ c }}><br>
+
+    <label class="white" for="">Compliance to Hand hygiene practice</label>
+		<input type="number" class="space form-control" step="0.0001" name="7" placeholder="NUMERATOR" required="required" /><br>
+    <input type="number" class="space form-control" step="0.0001" name="8" placeholder="DENOMINATOR" required="required" /><br>
+    <input type="text" class="space form-control" step="0.0001" placeholder="DENOMINATOR" value={{ d }}><br>
+
+    <label class="white" for="">In - patient satisfaction score </label>
+		<input type="number" class="space form-control" step="0.0001" name="9" placeholder="NUMERATOR" required="required" /><br>
+    <input type="number" class="space form-control" step="0.0001" name="10" placeholder="DENOMINATOR" required="required" /><br>
+    <input type="text" class="space form-control" step="0.0001" placeholder="DENOMINATOR" value={{ e }}><br>
+
+    <label class="white" for="">Left against Medical advice (LAMA) Rate</label>
+		<input type="number" class="space form-control" step="0.0001" name="11" placeholder="NUMERATOR" required="required" /><br>
+    <input type="number" class="space form-control" step="0.0001" name="12" placeholder="DENOMINATOR" required="required" /><br>
+    <input type="text" class="space form-control" step="0.0001" placeholder="DENOMINATOR" value={{ f }}><br>
+
+    <label class="white" for="">Nurse-patient ratio for wards</label>
+		<input type="number" class="space form-control" step="0.0001" name="13" placeholder="NUMERATOR" required="required" /><br>
+    <input type="number" class="space form-control" step="0.0001" name="14" placeholder="DENOMINATOR" required="required" /><br>
+    <input type="text" class="space form-control" step="0.0001" placeholder="DENOMINATOR" value={{ g }}><br>
+
+    <label class="white" for="">Percentage of cases (in-patients) wherein the nursing care plan is documented</label>
+		<input type="number" class="space form-control" step="0.0001" name="15" placeholder="NUMERATOR" required="required" /><br>
+    <input type="number" class="space form-control" step="0.0001" name="16" placeholder="DENOMINATOR" required="required" /><br>
+    <input type="text" class="space form-control" step="0.0001" placeholder="DENOMINATOR" value={{ h }}><br>
+
+    <label class="white" for="">Surgical site infection rate</label>
+		<input type="number" class="space form-control" step="0.0001" name="17" placeholder="NUMERATOR" required="required" /><br>
+    <input type="number" class="space form-control" step="0.0001" name="18" placeholder="DENOMINATOR" required="required" /><br>
+    <input type="text" class="space form-control" step="0.0001" placeholder="DENOMINATOR" value={{ i }}><br>
+
+    <label class="white" for="">Lost and found analysis </label>
+		<input type="number" class="space form-control" step="0.0001" name="19" placeholder="NUMERATOR" required="required" /><br>
+    <input type="number" class="space form-control" step="0.0001" name="20" placeholder="DENOMINATOR" required="required" /><br>
+    <input type="text" class="space form-control" step="0.0001" placeholder="DENOMINATOR" value={{ j }}><br>
+
+
+</div>
+</div>
+
+<div style="padding:2% 35%">
+  <button type="submit" class="btn btn-success btn-block" style="width:350px;padding:20px">Predict</button>		
+</div>
+      
+    </form>
+
+   <br>
+   <br>
+<div  style="background:yellow;padding:2% 40%">
+   {{ prediction_text }}
+</div>
+ </div>
+
+
+</body>
+</html>

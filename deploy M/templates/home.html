@@ -1,0 +1,423 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .feed_table{
+        margin-left: 50px;
+        margin-right: 50px;
+}
+.white{
+    font-size: large;
+}
+.index{
+    background:url("/static/image/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.container1{
+  background: #f06d06;
+  padding: 40px;
+  margin: 20%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  border: 2px solid #61dafb;
+  border-radius: 1em;
+}
+.form1{
+  background-color: #023349;
+}
+.legend1{
+  box-sizing: content-box;
+  padding: 10px;
+  border-radius: 1em;
+  background-color: #023349;
+  font-size: 20px;
+  font-weight: 900;
+  color: #61dafb;
+}
+.input1{
+  width: 80%;
+  padding: 12px;
+  border: 1px solid #61dafb;
+}
+
+.fieldset1{
+  /* background-color: #ffff; */
+  border: 2px solid #61dafb;
+  border-radius: 1em;
+}
+
+.input1[type="submit"],input[type="reset"]{
+  font-size: 17px;
+  background-color: #61dafb;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.input1[type="submit"]:hover,input[type="reset"]:hover{
+  color: white;
+  background-color: #049ff8;
+}
+.result{
+  padding: 12px;
+  padding-left: 100px;
+  border: 1px solid #61dafb;
+}
+h1{
+    color: red;
+    text-align: center;
+}
+
+</style>
+
+
+<body class="index">
+<h1 style="text-align:center;color: black"><b>PERFORMANCE BASED QUALITY IMPROVEMENT MODEL USING BALANCED SCORECARD FOR HOSPITALS THROUGH HEALTHCARE 4.0</b></h1>
+     <!-- Main Input For Receiving Query to our ML -->
+
+	 <form class="form1 container1" action="{% url 'predict' %}" style="background-color: #c7e9fa;box-sizing: border-box;
+	 font-family: proxima_nova_rgregular, Helvetica, Arial, sans-serif;" method="POST">
+	 {% csrf_token %}
+		 <fieldset class="fieldset1">
+			 <legend style="text-align:center" class="legend1">Enter the Detail</legend>
+
+    <h1>CUSTOMER PERSPECTIVE</h1>
+
+    <label class="white" for="">Waiting time for diagnostics</label>
+    <input class="input1" type="number" step="0.0001" name="1" placeholder="Sum total patient reporting time" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="2" placeholder="Number of patients reported in diagnostics" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ a }} ><br>
+    <br>
+
+    <label class="white" for="">Time taken for discharge</label>
+	<input class="input1" type="number" step="0.0001" name="3" placeholder="Sum of time taken for discharge" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="4" placeholder="Number of patient discharged" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ b }}><br>
+    <br>
+
+    <label class="white" for="">Out patient satisfaction score</label>
+	<input class="input1" type="number" step="0.0001" name="5" placeholder="Average Score achieved" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="6" placeholder="Maximum possible score" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ c }}><br>
+    <br>
+    
+    <label class="white" for="">Compliance to Hand hygiene practice</label>
+	<input class="input1" type="number" step="0.0001" name="7" placeholder="Total number of actions performed" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="8" placeholder="Total number of hand hygiene opportunities" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ d }}><br>
+    <br>
+    
+    <label class="white" for="">In - patient satisfaction score</label>
+	<input class="input1" type="number" step="0.0001" name="9" placeholder="Average Score achieved" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="10" placeholder="Maximum possible score" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ e }}><br>
+    <br>
+
+    <label class="white" for="">Left against Medical advice (LAMA) Rate</label>
+	<input class="input1" type="number" step="0.0001" name="11" placeholder="Number of LAMA patient from the facility " required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="12" placeholder="Total number of admissions " required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ f }}><br>
+    <br>
+
+    <label class="white" for="">Nurse-patient ratio for wards</label>
+	<input class="input1" type="number" step="0.0001" name="13" placeholder="Number of nursing staff" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="14" placeholder="Number of occupied beds" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ g }}><br>
+    <br>
+
+    <label class="white" for="">Percentage of cases (in-patients) wherein the nursing care plan is documented</label>
+	<input class="input1" type="number" step="0.0001" name="15" placeholder="Number of in-patient case records wherein the nutritional " required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="16" placeholder="Total number of patients" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ h }}><br>
+    <br>
+
+    <label class="white" for="">Surgical site infection rate</label>
+	<input class="input1" type="number" step="0.0001" name="17" placeholder="Number of surgical site infections in a given month" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="18" placeholder="Number of surgeries performed in that month" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ i }}><br>
+    <br>
+
+    <label class="white" for="">Lost and found analysis</label>
+	<input class="input1" type="number" step="0.0001" name="19" placeholder="Total number items found" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="20" placeholder="Total number of Incidents" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ j }}><br>
+    <br>
+
+    <label class="white" for="">Percentage of cases (in-patients) wherein screening for nutritional needs has 
+        been done  </label>
+	<input class="input1" type="number" step="0.0001" name="21" placeholder="Number of in - patient case records wherein the nutritional assessment has been documented " required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="22" placeholder="Total number of patients " required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ k }}><br>
+    <br>
+
+    <label class="white" for="">Waiting time for out patient consultation </label>
+	<input class="input1" type="number" step="0.0001" name="23" placeholder="Sum total Patient-in time for consultation" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="24" placeholder="Total Number of out-patients" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ l }}><br>
+    <br>
+
+    <label class="white" for="">Percentage of prescription dispensed within defined time frame</label>
+	<input class="input1" type="number" step="0.0001" name="25" placeholder="Total number of prescription dispensed within time frame" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="26" placeholder="Total number of prescription" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ m }}><br>
+    <br>
+
+    <label class="white" for="">Time taken for initial assessment of indoor patients (Nurses)</label>
+	<input class="input1" type="number" step="0.0001" name="27" placeholder="Sum of time taken for assessment " required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="28" placeholder="Total number of admissions " required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ n }}><br>
+    <br><br><br>
+
+
+
+
+    <h1>FINANCIAL PERSPECTIVE</h1>
+    <label class="white" for="">On time purchase</label><br>
+	<input class="input1" type="number" step="0.0001" name="29" placeholder="Total number of on time purchase done" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="30" placeholder="Total number of purchase requests received" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ o }}><br>
+    <br>
+
+    <label class="white" for="">Stock out rate  of emergency medications</label>
+	<input class="input1" type="number" step="0.0001" name="31" placeholder="Number of stock-outs of emergency drugs" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="32" placeholder="Number of drugs listed as  emergency drugs in hospital formulary" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ p }}><br>
+    <br>
+
+    <label class="white" for="">Average length of stay</label>
+	<input class="input1" type="number" step="0.0001" name="33" placeholder="Number of Inpatient days in a given month" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="34" placeholder="Number of discharges and death in that month" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ q }}><br>
+    <br>
+
+    <label class="white" for="">Percentage of Investigations cancelled</label>
+	<input class="input1" type="number" step="0.0001" name="35" placeholder="Number of investigations cancelled" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="36" placeholder="Total number of investigations done" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ r }}><br>
+    <br>
+
+    <label class="white" for="">Bed Occupancy  Rate (BOR)</label>
+	<input class="input1" type="number" step="0.0001" name="37" placeholder="Number of Inpatient days in a given month" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="38" placeholder="Number of available bed days in that month" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ s }}><br>
+    <br>
+
+    <label class="white" for="">Percentage of patients discharged after 4pm </label>
+	<input class="input1" type="number" step="0.0001" name="39" placeholder="Total number of patients discharged after 4 pm " required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="40" placeholder="Total number of discharges" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ t }}><br>
+    <br>
+
+    <label class="white" for="">Insurance conversion rate (Scheme patients) </label>
+	<input class="input1" type="number" step="0.0001" name="41" placeholder="Total number of insurance Admissions" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="42" placeholder="Total number of Admissions" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ u }}><br>
+    <br>
+
+    <label class="white" for="">Percentage of variations from the procurement process in Pharmacy</label><br>
+	<input class="input1" type="number" step="0.0001" name="43" placeholder="Number of times standard  procurement process was not followed " required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="44" placeholder="Total number of procurements done" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ v }}><br>
+    <br>
+
+    <label class="white" for="">Percentage of drugs and consumables procured by local purchase - outside  formulary in pharmacy </label><br>
+	<input class="input1" type="number" step="0.0001" name="45" placeholder="Number of items procured by Local purchase outside formulary" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="46" placeholder="Number of drugs listed in hospital formulary and hospital consumables list" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ w }}><br>
+    <br>
+
+    <label class="white" for="">Percentage of drugs and consumables rejected before preparation of Goods receipt note</label><br>
+	<input class="input1" type="number" step="0.0001" name="47" placeholder="Total quantity rejected" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="48" placeholder="Total quantity received before GRN" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ x }}><br>
+    <br><br><br>
+
+
+
+    <h1>INTERNAL BUSINESS PROCESS PRESPECTIVE</h1>
+    <label class="white" for="">Percentage of surgeries where the organisation’s procedure to prevent adverse events like the wrong site, wrong patient and wrong surgery have been adhered to</label><br>
+	<input class="input1" type="number" step="0.0001" name="49" placeholder="Number of surgeries where the procedure was followed" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="50" placeholder="Number of surgeries that were audited" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ i1 }}><br>
+    <br>
+
+    <label class="white" for="">Medication Errors Rate</label><br>
+	<input class="input1" type="number" step="0.0001" name="51" placeholder="Total number of medication errors" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="52" placeholder="Total Number of opportunities of medication errors" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ i2 }}><br>
+    <br>
+
+    <label class="white" for="">Rate of needle stick injuries</label><br>
+	<input class="input1" type="number" step="0.0001" name="53" placeholder="Number needle stick injuries" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="54" placeholder="Number of inpatient days " required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ i3 }}><br>
+    <br>
+
+    <label class="white" for="">Catheter associated Urinary tract infection rate</label><br>
+	<input class="input1" type="number" step="0.0001" name="55" placeholder="Number of urinary catheter associated UTIs in a month" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="56" placeholder="Number of urinary catheter days in that month" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ i4 }}><br>
+    <br>
+
+    <label class="white" for="">Percentage of medical records having incomplete and/or improper consent</label><br>
+	<input class="input1" type="number" step="0.0001" name="57" placeholder="Number of medical records having incomplete and/or improper consent" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="58" placeholder="Number of discharges and deaths" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ i5 }}><br>
+    <br>
+
+    <label class="white" for="">Percentage of near misses</label><br>
+	<input class="input1" type="number" step="0.0001" name="59" placeholder="Number of near misses reported" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="60" placeholder="Number of incidents reported" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ i6 }}><br>
+    <br>
+
+    <label class="white" for=""> Number of sentinel events reported, collected and analyzed within the defined time frame</label><br>
+	<input class="input1" type="number" step="0.0001" name="61" placeholder=" Number of sentinel events reported, collected and analyzed within the defined time frame" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="62" placeholder=" Number of sentinel events reported, collected and analyzed" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ i7 }}><br>
+    <br>
+
+    <label class="white" for="">Percentage of adherence to safety precautions by staff working in diagnostics</label><br>
+	<input class="input1" type="number" step="0.0001" name="63" placeholder="Number of staffs adhering to safety precautions " required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="64" placeholder="Number of staff audited " required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ i8 }}><br>
+    <br>
+
+    <label class="white" for="">Patient fall rate (falls per 1000 patient days) </label><br>
+	<input class="input1" type="number" step="0.0001" name="65" placeholder="Number of patient fall" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="66" placeholder="Total number of patient days" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ i9 }}><br>
+    <br>
+
+    <label class="white" for="">Percentage of unplanned return to OT</label><br>
+	<input class="input1" type="number" step="0.0001" name="67" placeholder="Number of unplanned return to OT" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="68" placeholder="Number of patients who underwent surgeries in the OT" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ i10 }}><br>
+    <br>
+
+    <label class="white" for="">Number of reporting errors per 1000 investigations </label><br>
+	<input class="input1" type="number" step="0.0001" name="69" placeholder="Number of reporting errors" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="70" placeholder="Number of tests performed" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ i11 }}><br>
+    <br>
+
+    <label class="white" for="">Percentage of in-patients developing adverse drug reaction(s)</label><br>
+	<input class="input1" type="number" step="0.0001" name="71" placeholder="Number of patients developing adverse drug reactions" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="72" placeholder="Number of inpatients" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ i12 }}><br>
+    <br>
+
+    <label class="white" for="">Appropriate handovers during shift change </label><br>
+	<input class="input1" type="number" step="0.0001" name="73" placeholder="Total no of handovers done appropriately" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="74" placeholder="Total no of handover opportunities" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ i13 }}><br>
+    <br>
+
+    <label class="white" for="">Return to ICU within 48 hours</label><br>
+	<input class="input1" type="number" step="0.0001" name="75" placeholder="Number of returns to ICU within 48 hours" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="76" placeholder="Number of discharges/transfers from the ICU" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ i14 }}><br>
+    <br>
+
+    <label class="white" for="">Standardised Maternal  Mortality Rate</label><br>
+	<input class="input1" type="number" step="0.0001" name="77" placeholder="Number of maternal deaths" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="78" placeholder="Number of deaths" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ i15 }}><br>
+    <br>
+
+    <label class="white" for="">Ventilator associated event rate</label><br>
+	<input class="input1" type="number" step="0.0001" name="79" placeholder="Number of “Ventilator Associated Pneumonia” in a month" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="80" placeholder="Number of ventilator days in that month" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ i16 }}><br>
+    <br>
+
+    <label class="white" for="">Percentage of rescheduling of surgeries</label><br>
+	<input class="input1" type="number" step="0.0001" name="81" placeholder="Number of cases rescheduled" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="82" placeholder="Number of surgeries planned" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ i17 }}><br>
+    <br><br><br>
+
+
+
+    <h1> LEARNING AND GROWTH  PERSPECTIVE</h1>
+    <label class="white" for="">Employee satisfaction index </label><br>
+	<input class="input1" type="number" step="0.0001" name="83" placeholder="Average Score achieved" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="84" placeholder="Maximum possible score" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ l1 }}><br>
+    <br>
+
+    <label class="white" for="">Nurse-patient ratio for ICUs</label><br>
+	<input class="input1" type="number" step="0.0001" name="85" placeholder="Number of nursing staff" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="86" placeholder="Number of occupied beds" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ l2 }}><br>
+    <br>
+
+    <label class="white" for="">Training programs offered in a year </label><br>
+	<input class="input1" type="number" step="0.0001" name="87" placeholder="Total number of courses" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="88" placeholder="Workshop offered ina year " required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ l3 }}><br>
+    <br>
+
+    <label class="white" for="">Training Experience Satisfaction</label><br>
+	<input class="input1" type="number" step="0.0001" name="89" placeholder="Average score achieved" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="90" placeholder="Maximum possible score" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ l4 }}><br>
+    <br>
+
+    <label class="white" for="">Percentage of staff provided preexposure prophylaxis</label><br>
+	<input class="input1" type="number" step="0.0001" name="91" placeholder="Number of employees who were provided pre-exposure prophylaxis" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="92" placeholder="Number of employees who were due to be provided pre-exposure prophylaxis" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ l5 }}><br>
+    <br>
+
+    <label class="white" for="">Employee attrition rate - Overall </label><br>
+	<input class="input1" type="number" step="0.0001" name="93" placeholder="Number of employees who have left" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="94" placeholder="Number of employees at the beginning of the month + Newly joined staff" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ l6 }}><br>
+    <br>
+
+    <label class="white" for="">Employee absenteeism rate</label><br>
+	<input class="input1" type="number" step="0.0001" name="95" placeholder="Number of employees who are on unauthorized absence" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="96" placeholder="Number of employees" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ l7 }}><br>
+    <br>
+
+    <label class="white" for="">Employees who are aware of employee rights,responsibilities</label><br>
+	<input class="input1" type="number" step="0.0001" name="97" placeholder="Number of employees who are aware of employee rights, responsibilities and welfare schemes" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="98" placeholder="Number of employees interviewed" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ l8 }}><br>
+    <br>
+
+    <label class="white" for="">Number of variations observed in mock drills</label><br>
+	<input class="input1" type="number" step="0.0001" name="99" placeholder="Total number of scenario tested " required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="100" placeholder="Number of scenario according to the plan " required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ i9 }}><br>
+    <br>
+
+    <label class="white" for="">Total number of training hours spent on induction and orientation </label><br>
+	<input class="input1" type="number" step="0.0001" name="101" placeholder="Number of employees" required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="102" placeholder="Average number of training hours per employee" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ l10 }}><br>
+    <br>
+
+    <label class="white" for="">Overall staff turnover rate </label><br>
+	<input class="input1" type="number" step="0.0001" name="103" placeholder="Number of employees who left during the period " required="required" /><br>
+    <input class="input1" type="number" step="0.0001" name="104" placeholder="Average total number of employees during the period" required="required" /><br>
+    <input class="result" type="text" step="0.0001"  placeholder="RESULT" value={{ l11 }}><br>
+    <br>
+
+
+
+	 <input class="input1" type="submit" value="Submit"><br>
+		 </fieldset>
+	 </form>
+
+
+</body>
+</html>
