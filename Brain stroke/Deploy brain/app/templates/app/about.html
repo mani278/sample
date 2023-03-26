@@ -1,0 +1,68 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+
+	
+	{% block content %}
+<body class="about">
+    <h2>About Cerebrovascular Accident</h2>
+    <br>
+    <h4 style="padding-left: 40px">
+        Cerebrovascular accident commonly called a brain stroke, occurs when something blocks blood supply to part of the brain or when a
+    </h4>
+    <h4>
+        blood vessel in the brain bursts. In either case, parts of the brain become damaged or die. A stroke can cause lasting brain damage, long-term disability, or even death. 
+    </h4>
+    <br><br>
+    <h4>
+        There are two types of stroke:
+        <ul>
+            <li>    Ischemic stroke</li>
+            <li>    Hemorrhagic stroke</li>
+            <li>    Transient ischemic attack (TIA)</li>
+        </ul>
+    </h4>
+    <br><br>
+
+    <h2>Ischemic stroke</h2>
+    <h4 style="padding-left: 40px">Most strokes are ischemic strokes.An ischemic stroke occurs                                          
+        when blood clots or other particles block the blood vessels                                 
+        to the brain.
+    </h4>
+<h4>Fatty deposits called plaque can also cause
+    blockages by building up in the blood vessels.</h4><br><br>
+    <center>
+    <img src="{% static "image/ischemic.jpg" %}" width="400" height="400" alt="something" >
+</center>
+
+<br><br>
+    <h2>Hemorrhagic stroke</h2>
+    <h4 style="padding-left: 40px">A hemorrhagic stroke happens when an artery in the brain 
+        leaks blood or ruptures (breaks open). The leaked blood 
+        puts too much   
+        
+    </h4>
+<h4>pressure on brain cells, which damages them.
+    High blood pressure and aneurysms—balloon-like bulges 
+   in an artery that can stretch and burst are examples of conditions that can cause a hemorrhagic stroke.</h4><br><br>
+    <center>
+    <img src="{% static "image/Hemorrhagic.jpg" %}" width="400" height="400" alt="something" >
+</center>
+
+<br><br>
+    <h2>Transient ischemic attack (TIA)</h2>
+    <h4 style="padding-left: 40px">A transient ischemic attack (TIA) is sometimes 
+        called a “mini-stroke.” It is different from the major 
+        types of stroke, because blood flow 
+    </h4>
+<h4>to the brain is 
+    blocked foronly a short time 
+    usually no more than 5 minutes.</h4><br><br>
+    <center>
+    <img src="{% static "image/tia.jpg" %}" width="400" height="400" alt="something" >
+</center>
+    {% endblock content %}
+</body>
+
+
+</html>

@@ -1,0 +1,88 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+
+	
+	{% block content %}
+<body class="index">
+    <div class="testbox">
+        <form action="{% url 'predict' %}" method="POST">
+            {% csrf_token %}
+            <div class="banner">
+                <h1>Brain Stroke Prediction</h1>
+            </div><br>
+            <center>
+                <p>Enter the details</p>
+            </center>
+        
+        <div class="question">
+            <label for="gender">Gender<span style="margin-left: 0px;color: red;">*</span></label>
+            <div class="question-answer">
+                <div>
+                    <input type="radio" value=0 id="radio_1" name="Gender" required="required" />
+                    <label for="radio_1" class="radio"><span>Male</span></label>
+                </div>
+                <div>
+                    <input  type="radio" value=1 id="radio_2" name="Gender" required="required" />
+                    <label for="radio_2" class="radio"><span>Female</span></label>
+                </div>
+            </div>
+        </div><br>
+
+        <div class="item">
+            <label for="phone">Age<span>*</span></label><br><br>
+            <input id="phone" type="number" name="Age" required="required" />
+        </div><br>
+
+        <div class="item">
+            <p>Hypertension<span>*</span></p>
+            <select name="Hypertension" required="required">
+              <option selected value="" disabled selected></option>
+              <option value=0>No</option>
+              <option value=1>Yes</option>
+            </select>
+        </div><br>
+
+        <div class="item">
+            <p>Heart Disease<span>*</span></p>
+            <select name="Heart Disease" required="required">
+              <option selected value="" disabled selected></option>
+              <option value=0>No</option>
+              <option value=1>Yes</option>
+            </select>
+        </div><br>
+
+        <div class="item">
+            <label for="phone">Average Glucose Level<span>*</span></label><br><br>
+            <input id="phone" type="number" step="0.01" name="avg_glucose_level" required="required"/>
+        </div><br>
+
+        <div class="item">
+            <label for="phone">BMI<span>*</span></label><br><br>
+            <input id="phone" type="number" step="0.01" name="bmi" required="required"/>
+        </div><br>
+
+        <div class="item">
+            <p>Smoking Status<span>*</span></p>
+            <select name="Smoking Status" required="required">
+              <option selected value="" disabled selected></option>
+              <option value=0>Unknown</option>
+              <option value=1>formerly smoked</option>
+              <option value=2>never smoked</option>
+              <option value=3>smokes</option>
+            </select>
+        </div><br>
+
+        <input class="input1" type="submit" value="Submit"><br>
+
+        </form>
+
+        
+      </div>
+
+      <div  style="background:skyblue;padding:2% 40%">
+        {{ prediction_text }}
+     </div>
+</body>
+{% endblock content %}
+</html>
